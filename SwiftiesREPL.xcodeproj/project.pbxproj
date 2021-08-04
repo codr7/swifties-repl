@@ -10,6 +10,7 @@
 		8627703A26BA3EEA0016716F /* IdReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627703926BA3EEA0016716F /* IdReader.swift */; };
 		86A47DFE26B7377300DFE052 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A47DFD26B7377300DFE052 /* main.swift */; };
 		86A47E0C26B749C700DFE052 /* Swifties in Frameworks */ = {isa = PBXBuildFile; productRef = 86A47E0B26B749C700DFE052 /* Swifties */; };
+		86D48D8B26BB194400704F7D /* CallReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D48D8A26BB194400704F7D /* CallReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		8627703926BA3EEA0016716F /* IdReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdReader.swift; sourceTree = "<group>"; };
 		86A47DFA26B7377300DFE052 /* SwiftiesREPL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftiesREPL; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A47DFD26B7377300DFE052 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		86D48D8A26BB194400704F7D /* CallReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				8627703926BA3EEA0016716F /* IdReader.swift */,
+				86D48D8A26BB194400704F7D /* CallReader.swift */,
 			);
 			path = readers;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				86A47DFE26B7377300DFE052 /* main.swift in Sources */,
 				8627703A26BA3EEA0016716F /* IdReader.swift in Sources */,
+				86D48D8B26BB194400704F7D /* CallReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

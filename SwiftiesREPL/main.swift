@@ -13,7 +13,7 @@ try env.coreLib!.bind(pos: initPos)
 try MathLib(env: env, pos: initPos).bind(pos: initPos)
 
 let parser = Parser(env: env, source: "repl",
-                    spaceReader, idReader)
+                    spaceReader, callReader, idReader)
 
 var prompt = 1
 var input = ""
@@ -22,7 +22,7 @@ while true {
     print("\(prompt)  ", terminator: "")
     let line = readLine()
     if line == nil { break }
-    try parser.slurp(line!)
+    if let e = parser.slurp(line!) { throw e }
     let forms = parser.forms
     
     if forms.count > 0 && parser.input.count == 0 {

@@ -5,11 +5,12 @@ public let idReader = IdReader()
 
 public class IdReader: Reader {
     public func readForm(_ p: Parser) throws -> Form? {
+        let fpos = p.pos
         var out: String = ""
         
         while let c = p.getc() {
-            if isSpace(c) || c == "(" || c == ")" {
-                if out.count > 0 { p.ungetc(c) }
+            if c.isWhitespace || c == "(" || c == ")" {
+                p.ungetc(c)
                 break
             }
             
@@ -17,8 +18,6 @@ public class IdReader: Reader {
             p.nextColumn()
         }
         
-        return (out.count == 0) ? nil : IdForm(env: p.env, pos: p.pos, name: out)
+        return (out.count == 0) ? nil : IdForm(env: p.env, pos: fpos, name: out)
     }
 }
-
-func isSpace(_ c: Character) -> Bool { c == " " || c == "\n" || c == "\t" }
