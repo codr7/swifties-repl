@@ -1,27 +1,44 @@
 import Foundation
 import Swifties
 
+print("Swifties v\(SWIFTIES_VERSION)\n")
+print("Hit Return on empty line to evaluate.")
+print("(reset) clears the stack and Ctrl+D quits.\n")
+
 let env = Env()
+env.beginScope()
+let initPos = Pos("repl init")
+try env.initCoreLib(pos: initPos)
+try env.coreLib!.bind(pos: initPos)
+try MathLib(env: env, pos: initPos).bind(pos: initPos)
+
+let parser = Parser(env: env, source: "repl",
+                    spaceReader, idReader)
+
+var prompt = 1
 var input = ""
 
-print("Swifties v\(SWIFTIES_VERSION)\n\n")
-
 while true {
-    print("  ")
+    print("\(prompt)  ", terminator: "")
     let line = readLine()
     if line == nil { break }
-    
+    input += line!
+
     if line! == "" {
-        let parser = Parser(env: env, source: "repl",
-                            spaceReader, idReader)
-        
         try parser.read(&input)
+        
+        if input != "" {
+            print("Unrecognized input: \(input)")
+            input = ""
+        }
+        
+        let forms = parser.forms
+        parser.reset()
         let startPc = env.pc
-        for f in parser.forms { try f.emit() }
+        for f in forms { try f.emit() }
+        env.emit(STOP)
         try env.eval(pc: startPc)
-    } else {
-        input += line!
+        print("\(env.coreLib!.stackType.dumpValue!(env.stack))")
+        prompt += 1
     }
-    
-    print("\(env.coreLib!.stackType.dumpValue!(env.stack))\n")
 }
