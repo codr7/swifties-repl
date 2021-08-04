@@ -3,24 +3,22 @@ import Swifties
 
 public let idReader = IdReader()
 
-func isSpace(_ c: Character) -> Bool {
-    return c == " " || c == "\n" || c == "\t"
-}
-
 public class IdReader: Reader {
-    public func readForm(_ input: inout String, root: Parser) throws -> Form? {
+    public func readForm(_ p: Parser) throws -> Form? {
         var out: String = ""
         
-        while let c = input.popLast() {
+        while let c = p.getc() {
             if isSpace(c) || c == "(" || c == ")" {
-                input.append(c)
+                if out.count > 0 { p.ungetc(c) }
                 break
             }
             
             out.append(c)
-            root.nextColumn()
+            p.nextColumn()
         }
         
-        return (out.count == 0) ? nil : IdForm(env: root.env, pos: root.pos, name: out)
+        return (out.count == 0) ? nil : IdForm(env: p.env, pos: p.pos, name: out)
     }
 }
+
+func isSpace(_ c: Character) -> Bool { c == " " || c == "\n" || c == "\t" }
