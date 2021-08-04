@@ -4,7 +4,7 @@ import Swifties
 let env = Env()
 var input = ""
 
-print("Swifties v1\n\n")
+print("Swifties v\(SWIFTIES_VERSION)\n\n")
 
 while true {
     print("  ")
@@ -23,5 +23,5 @@ while true {
         input += line!
     }
     
-    //TODO Print stack
+    print("\(env.coreLib!.stackType.dumpValue!(env.stack))\n")
 }

@@ -10,8 +10,6 @@ public let idReader = IdReader()
 public class IdReader: Reader {
     public func readForm(_ input: inout String, root: Parser) throws -> Form? {
         var out: String = ""
-        input = String(input.reversed())
-        defer { input = String(input.reversed()) }
         
         while let c = input.popLast() {
             if isSpace(c) || c == "(" || c == ")" {
