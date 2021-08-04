@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		86A47DFE26B7377300DFE052 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A47DFD26B7377300DFE052 /* main.swift */; };
+		86A47E0C26B749C700DFE052 /* Swifties in Frameworks */ = {isa = PBXBuildFile; productRef = 86A47E0B26B749C700DFE052 /* Swifties */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A47E0C26B749C700DFE052 /* Swifties in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +80,9 @@
 			dependencies = (
 			);
 			name = SwiftiesREPL;
+			packageProductDependencies = (
+				86A47E0B26B749C700DFE052 /* Swifties */,
+			);
 			productName = SwiftiesREPL;
 			productReference = 86A47DFA26B7377300DFE052 /* SwiftiesREPL */;
 			productType = "com.apple.product-type.tool";
@@ -105,6 +110,9 @@
 				Base,
 			);
 			mainGroup = 86A47DF126B7377300DFE052;
+			packageReferences = (
+				86A47E0A26B749C700DFE052 /* XCRemoteSwiftPackageReference "swifties" */,
+			);
 			productRefGroup = 86A47DFB26B7377300DFE052 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -184,6 +192,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -238,6 +247,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -281,6 +291,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86A47E0A26B749C700DFE052 /* XCRemoteSwiftPackageReference "swifties" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/codr7/swifties.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86A47E0B26B749C700DFE052 /* Swifties */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86A47E0A26B749C700DFE052 /* XCRemoteSwiftPackageReference "swifties" */;
+			productName = Swifties;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86A47DF226B7377300DFE052 /* Project object */;
 }

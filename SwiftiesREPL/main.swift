@@ -1,11 +1,27 @@
-//
-//  main.swift
-//  SwiftiesREPL
-//
-//  Created by Andreas Nilsson on 2021-08-01.
-//
-
 import Foundation
+import Swifties
 
-print("Hello, World!")
+let env = Env()
+var input = ""
 
+print("Swifties v1\n\n")
+
+while true {
+    print("  ")
+    let line = readLine()
+    if line == nil { break }
+    
+    if line! == "" {
+        let parser = RootParser(env: env, source: "repl",
+                                spaceParser, idParser)
+        
+        try parser.read(&input)
+        let startPc = env.pc
+        for f in parser.forms { try f.emit() }
+        try env.eval(pc: startPc)
+    } else {
+        input += line!
+    }
+    
+    //TODO Print stack
+}
