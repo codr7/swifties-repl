@@ -12,8 +12,8 @@ while true {
     if line == nil { break }
     
     if line! == "" {
-        let parser = RootParser(env: env, source: "repl",
-                                spaceParser, idParser)
+        let parser = Parser(env: env, source: "repl",
+                            spaceReader, idReader)
         
         try parser.read(&input)
         let startPc = env.pc

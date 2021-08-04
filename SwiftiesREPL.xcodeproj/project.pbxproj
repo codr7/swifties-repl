@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8627703A26BA3EEA0016716F /* IdReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627703926BA3EEA0016716F /* IdReader.swift */; };
 		86A47DFE26B7377300DFE052 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A47DFD26B7377300DFE052 /* main.swift */; };
 		86A47E0C26B749C700DFE052 /* Swifties in Frameworks */ = {isa = PBXBuildFile; productRef = 86A47E0B26B749C700DFE052 /* Swifties */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8627703926BA3EEA0016716F /* IdReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdReader.swift; sourceTree = "<group>"; };
 		86A47DFA26B7377300DFE052 /* SwiftiesREPL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftiesREPL; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A47DFD26B7377300DFE052 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -40,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8627703B26BA41790016716F /* readers */ = {
+			isa = PBXGroup;
+			children = (
+				8627703926BA3EEA0016716F /* IdReader.swift */,
+			);
+			path = readers;
+			sourceTree = "<group>";
+		};
 		86A47DF126B7377300DFE052 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +69,7 @@
 		86A47DFC26B7377300DFE052 /* SwiftiesREPL */ = {
 			isa = PBXGroup;
 			children = (
+				8627703B26BA41790016716F /* readers */,
 				86A47DFD26B7377300DFE052 /* main.swift */,
 			);
 			path = SwiftiesREPL;
@@ -128,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86A47DFE26B7377300DFE052 /* main.swift in Sources */,
+				8627703A26BA3EEA0016716F /* IdReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
