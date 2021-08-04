@@ -4,7 +4,6 @@ import Swifties
 print("Swifties v\(SWIFTIES_VERSION)\n")
 print("Hitting Return evaluates once the form is complete,")
 print("(reset) clears the stack and Ctrl+D quits.\n")
-print("May the Source be with you!\n")
 
 let env = Env()
 env.beginScope()
