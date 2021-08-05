@@ -2,20 +2,11 @@
   "object": {
     "pins": [
       {
-        "package": "swift-atomics",
-        "repositoryURL": "https://github.com/apple/swift-atomics.git",
-        "state": {
-          "branch": null,
-          "revision": "3e95ba32cd1b4c877f6163e8eea54afc4e63bf9f",
-          "version": "0.0.3"
-        }
-      },
-      {
         "package": "Swifties",
         "repositoryURL": "https://github.com/codr7/swifties.git",
         "state": {
           "branch": "main",
-          "revision": "81c2b2d7a218efa7dfdf5d203ab022ab72a9fbd0",
+          "revision": "d57683c809047f5c84516488c552041461726801",
           "version": null
         }
       }

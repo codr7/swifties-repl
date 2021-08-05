@@ -22,7 +22,7 @@ while true {
     print("\(prompt)  ", terminator: "")
     let line = readLine()
     if line == nil { break }
-    if let e = parser.slurp(line!) { throw e }
+    try parser.slurp(line!)
     let forms = parser.forms
     
     if forms.count > 0 && parser.input.count == 0 {
