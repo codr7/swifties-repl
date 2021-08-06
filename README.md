@@ -3,6 +3,12 @@
 ### intro
 This projects aims to demonstrate how to implement a custom Lisp with REPL using [Swifties](https://github.com/codr7/swifties).
 
+### quirks
+- The stack is directly exposed to user code, just like in Forth.
+- Primitives, Macros and Functions are called on reference with no arguments outside of call forms.
+- Parens are used for calls only, brackets for lists of things.
+- There's no syntax yet for automagically binding function arguments, think Perl until recently.
+
 ```
 Swifties v1
 
@@ -18,6 +24,7 @@ Hitting Return evaluates once the form is complete,
 ```
 
 ### bindings
+Values may be bound to identifiers once per scope using `let`.
 
 ```
 1  (let [x 35 y 7]
@@ -26,10 +33,12 @@ Hitting Return evaluates once the form is complete,
 ```
 
 ### functions
+New functions may be defined using `func`.
 
 ```
-1  (func fib [n Int] [Int]
-1      (if (< n 2) n (+ (fib (- n 1) (fib (- n 2))))))
+1  (func fib [Int] [Int]
+       (let [n _]
+1          (if (< n 2) n (+ (fib (- n 1) (fib (- n 2)))))))
 []
 2  (fib 20)
 [6765]
