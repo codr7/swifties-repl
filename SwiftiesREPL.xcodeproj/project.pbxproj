@@ -31,7 +31,7 @@
 		86A47DFA26B7377300DFE052 /* SwiftiesREPL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftiesREPL; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A47DFD26B7377300DFE052 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		86D48D8A26BB194400704F7D /* CallReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallReader.swift; sourceTree = "<group>"; };
-		86D48D8C26BC39E100704F7D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		86D48D8C26BC39E100704F7D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		86D48D8D26BDF49600704F7D /* StackReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
