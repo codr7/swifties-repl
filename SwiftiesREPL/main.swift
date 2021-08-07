@@ -35,7 +35,7 @@ while true {
         let startPc = env.pc
         for f in forms { try f.emit() }
         env.emit(STOP)
-        try env.eval(pc: startPc)
+        try env.eval(startPc)
         print("\(env.coreLib!.stackType.dumpValue!(env.stack))")
         parser.reset()
         prompt += 1
