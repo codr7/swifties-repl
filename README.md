@@ -46,24 +46,24 @@ New functions may be defined using `func`.
 The algorithm can definitely be improved, note that I had to change `n` from `10` to `50` to even get something worth measuring.
 
 ```
-  (func fibtail-1 [Int Int Int] [Int]
+  (func fibtail1 [Int Int Int] [Int]
       (let [n _ a _ b _]
-          (if (=0 n) a (if (=1 n) b (fibtail-1 (-1 n) b (+ a b))))))
+          (if (=0 n) a (if (=1 n) b (fibtail1 (-1 n) b (+ a b))))))
 []
   (bench 100 (fibrec 10))
 [6765 360]
-  (bench 100 (fibtail-1 50 0 1))
+  (bench 100 (fibtail1 50 0 1))
 [6765 360 162]
 ```
 
 Since the only recursive call is in tail position, `recall` may be used to trigger tail call optimization.
 
 ```
-  (func fibtail-2 [Int Int Int] [Int]
+  (func fibtail2 [Int Int Int] [Int]
       (let [n _ a _ b _]
           (if (=0 n) a (if (=1 n) b (recall (-1 n) b (+ a b))))))
 []
-  (bench 100 (fibtail-2 50 0 1))
+  (bench 100 (fibtail2 50 0 1))
 [6765 360 162 138]
 ```
 
