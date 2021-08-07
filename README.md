@@ -38,7 +38,7 @@ New functions may be defined using `func`.
 ```
 1  (func fib [Int] [Int]
 1      (let [n _]
-1          (if (< n 2) n (+ (fib (- n 1) (fib (- n 2))))))
+1          (if (< n 2) n (+ (fib (- n 1)) (fib (- n 2))))))
 []
 2  (fib 20)
 [6765]
