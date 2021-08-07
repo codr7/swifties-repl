@@ -9,11 +9,11 @@ Swifties v1
 Hitting Return evaluates once the form is complete,
 (reset) clears the stack and Ctrl+D quits.
 
-1  (do 1 2 3)
+  (do 1 2 3)
 [1 2 3]
-2  (do 4 stash 5 6)
+  (do 4 stash 5 6)
 [[1 2 3 4] 5 6]
-3  (do drop drop splat)
+  (do drop drop splat)
 [1 2 3 4]
 ```
 
@@ -27,8 +27,8 @@ Hitting Return evaluates once the form is complete,
 Values may be bound to identifiers once per scope using `let`.
 
 ```
-1  (let [x 35 y 7]
-1      (+ x y))
+  (let [x 35 y 7]
+      (+ x y))
 [42]
 ```
 
@@ -36,34 +36,34 @@ Values may be bound to identifiers once per scope using `let`.
 New functions may be defined using `func`.
 
 ```
-1  (func fibrec [Int] [Int]
-1      (let [n _]
-1          (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n))))))
+  (func fibrec [Int] [Int]
+      (let [n _]
+          (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n))))))
 []
-2  (fibrec 20)
+  (fibrec 20)
 [6765]
 ```
 The algorithm can definitely be improved, note that I had to change `n` from `10` to `50` to even get something worth measuring.
 
 ```
-1  (func fibtail-1 [Int Int Int] [Int]
-1      (let [n _ a _ b _]
-1          (if (=0 n) a (if (=1 n) b (fibtail-1 (-1 n) b (+ a b))))))
+  (func fibtail-1 [Int Int Int] [Int]
+      (let [n _ a _ b _]
+          (if (=0 n) a (if (=1 n) b (fibtail-1 (-1 n) b (+ a b))))))
 []
-2  (bench 100 (fibrec 10))
+  (bench 100 (fibrec 10))
 [6765 360]
-3  (bench 100 (fibtail-1 50 0 1))
+  (bench 100 (fibtail-1 50 0 1))
 [6765 360 162]
 ```
 
 Since the only recursive call is in tail position, `recall` may be used to trigger tail call optimization.
 
 ```
-1  (func fibtail-2 [Int Int Int] [Int]
-1      (let [n _ a _ b _]
-1          (if (=0 n) a (if (=1 n) b (recall (-1 n) b (+ a b))))))
+  (func fibtail-2 [Int Int Int] [Int]
+      (let [n _ a _ b _]
+          (if (=0 n) a (if (=1 n) b (recall (-1 n) b (+ a b))))))
 []
-2  (bench 100 (fibtail-2 50 0 1))
+  (bench 100 (fibtail-2 50 0 1))
 [6765 360 162 138]
 ```
 
