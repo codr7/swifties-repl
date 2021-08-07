@@ -6,10 +6,10 @@ public let idReader = IdReader()
 public class IdReader: Reader {
     public func readForm(_ p: Parser) throws -> Form? {
         let fpos = p.pos
-        var out: String = ""
+        var out = ""
         
         while let c = p.getc() {
-            if c.isWhitespace || c == "(" || c == ")" {
+            if c.isWhitespace || c == "(" || c == ")" || c == "[" || c == "]" {
                 p.ungetc(c)
                 break
             }
