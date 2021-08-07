@@ -51,9 +51,9 @@ The algorithm can definitely be improved, note that I had to change `n` from `10
           (if (=0 n) a (if (=1 n) b (fibtail1 (-1 n) b (+ a b))))))
 []
   (bench 100 (fibrec 10))
-[6765 307
+[307]
   (bench 100 (fibtail1 50 0 1))
-[6765 307 120]
+[307 120]
 ```
 
 Since the only recursive call is in tail position, `recall` may be used to trigger tail call optimization.
@@ -64,7 +64,7 @@ Since the only recursive call is in tail position, `recall` may be used to trigg
           (if (=0 n) a (if (=1 n) b (recall (-1 n) b (+ a b))))))
 []
   (bench 100 (fibtail2 50 0 1))
-[6765 307 120 95]
+[307 120 95]
 ```
 
 ### todo
