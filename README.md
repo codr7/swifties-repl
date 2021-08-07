@@ -6,7 +6,7 @@ This projects aims to demonstrate how to implement a custom Lisp with REPL using
 ```
 Swifties v1
 
-Hitting Return evaluates once the form is complete,
+Hitting Return evaluates once a form is complete,
 (reset) clears the stack and Ctrl+D quits.
 
   (do 1 2 3)
