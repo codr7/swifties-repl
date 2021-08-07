@@ -38,7 +38,7 @@ New functions may be defined using `func`.
 ```
 1  (func fibrec [Int] [Int]
 1      (let [n _]
-1          (if (< n 2) n (+ (fibrec (- n 1)) (fibrec (- n 2))))))
+1          (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n))))))
 []
 2  (fibrec 20)
 [6765]
@@ -48,7 +48,7 @@ The algorithm can definitely be improved, note that I had to change `n` from `10
 ```
 1  (func fibtail-1 [Int Int Int] [Int]
 1      (let [n _ a _ b _]
-1          (if (= n 0) a (if (= n 1) b (fibtail-1 (- n 1) b (+ a b))))))
+1          (if (=0 n) a (if (=1 n) b (fibtail-1 (-1 n) b (+ a b))))))
 []
 2  (bench 100 (fibrec 10))
 [6765 360]
@@ -61,7 +61,7 @@ Since the only recursive call is in tail position, `recall` may be used to trigg
 ```
 1  (func fibtail-2 [Int Int Int] [Int]
 1      (let [n _ a _ b _]
-1          (if (= n 0) a (if (= n 1) b (recall (- n 1) b (+ a b))))))
+1          (if (=0 n) a (if (=1 n) b (recall (-1 n) b (+ a b))))))
 []
 2  (bench 100 (fibtail-2 50 0 1))
 [6765 360 162 138]
