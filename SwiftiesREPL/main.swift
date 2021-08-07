@@ -6,7 +6,7 @@ print("Hitting Return evaluates once a form is complete,")
 print("(reset) clears the stack and Ctrl+D quits.\n")
 
 let env = Env()
-env.beginScope()
+env.openScope()
 let initPos = Pos("repl init")
 try env.initCoreLib(pos: initPos)
 try env.coreLib!.bind(pos: initPos)
