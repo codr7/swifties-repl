@@ -44,7 +44,7 @@ New functions may be defined using `func`.
 [6765]
 ```
 The algorithm can definitely be improved, note that I had to change `n` from `10` to `50` to even get something worth measuring.
-
+
 ```
 1  (func fibtail-1 [Int Int Int] [Int]
 1      (let [n _ a _ b _]
@@ -56,8 +56,8 @@ The algorithm can definitely be improved, note that I had to change `n` from `10
 [6765 360 162]
 ```
 
-Since the only recursive call is in tail position, `recall` may be used to trigger tail call optimization.
-
+Since the only recursive call is in tail position, `recall` may be used to trigger tail call optimization.
+
 ```
 1  (func fibtail-2 [Int Int Int] [Int]
 1      (let [n _ a _ b _]
