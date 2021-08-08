@@ -24,7 +24,7 @@ Hitting Return evaluates once a form is complete,
 - There's no syntax yet for automagically binding function arguments, think Perl until recently.
 
 ### bindings
-Values may be bound to identifiers once per scope using `let`.
+Values may be bound to identifiers using `let`.
 
 ```
   (let [x 35 y 7]
