@@ -56,7 +56,7 @@ The algorithm can definitely be improved, note that I had to change `n` from `10
 [307 120]
 ```
 
-Since the only recursive call is in tail position, `recall` may be used to trigger tail call optimization.
+Since the recursive call is in tail position, `recall` may be used to trigger tail call optimization.
 
 ```
   (func fibtail2 [Int Int Int] [Int]
