@@ -9,7 +9,7 @@ public class IdReader: Reader {
         var out = ""
         
         while let c = p.getc() {
-            if c.isWhitespace || c == "(" || c == ")" || c == "[" || c == "]" {
+            if c.isWhitespace || c == "(" || c == ")" || c == "[" || c == "]" || c == ":" {
                 p.ungetc(c)
                 break
             }

@@ -4,7 +4,7 @@
 This projects aims to demonstrate how to implement a custom Lisp with REPL using [Swifties](https://github.com/codr7/swifties).
 
 ```
-Swifties v1
+Swifties v2
 
 Hitting Return evaluates once a form is complete,
 (reset) clears the stack and Ctrl+D quits.
@@ -104,6 +104,14 @@ Every value has a boolean representation; most are true, but integers are false 
 
   (not 42)
 [t f]
+```
+
+### pairs
+Pairs may be formed using `:`.
+
+```
+  1:2
+[1:2]
 ```
 
 ### todo

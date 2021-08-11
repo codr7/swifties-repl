@@ -21,7 +21,7 @@ public class StackReader: Reader {
             c = p.getc()
             if c == nil || c == "]" { break }
             p.ungetc(c!)
-            let f = try parser.readForm(p)
+            let f = try parser.readForm()
             if f == nil { break }
             items.append(f!)
         }

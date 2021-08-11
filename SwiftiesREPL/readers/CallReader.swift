@@ -14,7 +14,7 @@ public class CallReader: Reader {
         }
         
         p.nextColumn()
-        let target = try p.readForm(p)
+        let target = try p.readForm()
         if target == nil { throw ReadError(p.pos, "Missing target") }
         var args: [Form] = []
 
@@ -23,7 +23,7 @@ public class CallReader: Reader {
             c = p.getc()
             if c == nil || c == ")" { break }
             p.ungetc(c!)
-            let f = try parser.readForm(p)
+            let f = try parser.readForm()
             if f == nil { break }
             args.append(f!)
         }
