@@ -115,10 +115,17 @@ Pairs may be formed using `:`.
 ```
 
 ### iteration
-`for` may be used to iterate.
+`for` may be used to iterate any sequence.
 
 ```
   (for 3)
+[0 1 2]
+```
+
+`:` may be used to bind the current value.
+
+```
+  (for i:3 i)
 [0 1 2]
 ```
 
