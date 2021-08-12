@@ -6,14 +6,15 @@ print("Hitting Return evaluates once a form is complete,")
 print("(reset) clears the stack and Ctrl+D quits.\n")
 
 let env = Env()
-env.openScope()
+env.begin()
 let initPos = Pos("repl init")
 try env.initCoreLib(pos: initPos)
 try env.coreLib!.bind(pos: initPos)
 try MathLib(env: env, pos: initPos).bind(pos: initPos)
 
 let parser = Parser(env: env, source: "repl",
-                    spaceReader, callReader, intReader, pairReader, stackReader, idReader)
+                    readers: [spaceReader, callReader, intReader, stackReader, idReader],
+                    suffixes: [pairReader])
 
 var prompt = 1
 var input = ""

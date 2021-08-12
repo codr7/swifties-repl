@@ -5,7 +5,6 @@ public let pairReader = PairReader()
 
 public class PairReader: Reader {
     public func readForm(_ p: Parser) throws -> Form? {
-        let fpos = p.pos
         let c = p.getc()
         
         if c != ":" {
@@ -13,11 +12,12 @@ public class PairReader: Reader {
             return nil
         }
         
+        let fpos = p.pos
         p.nextColumn()
         let left = p.popForm()
         if left == nil { throw ReadError(p.pos, "Missing left value"); }
-        let right = try p.readForm()
-        if right == nil { throw ReadError(p.pos, "Missing right value")}
+        if !(try p.readForm()) { throw ReadError(p.pos, "Missing right value")}
+        let right = p.popForm()
         return PairForm(env: p.env, pos: fpos, (left!, right!))
     }
 }

@@ -14,8 +14,8 @@ public class CallReader: Reader {
         }
         
         p.nextColumn()
-        let target = try p.readForm()
-        if target == nil { throw ReadError(p.pos, "Missing target") }
+        if !(try p.readForm()) { throw ReadError(p.pos, "Missing target") }
+        let target = p.popForm()!
         var args: [Form] = []
 
         while true {
@@ -23,13 +23,12 @@ public class CallReader: Reader {
             c = p.getc()
             if c == nil || c == ")" { break }
             p.ungetc(c!)
-            let f = try parser.readForm()
-            if f == nil { break }
-            args.append(f!)
+            if !(try parser.readForm()) { break }
+            args.append(p.popForm()!)
         }
 
         if c != ")" { throw ReadError(p.pos, "Open call form: \((c == nil) ? "nil" : String(c!))") }
         p.nextColumn()
-        return CallForm(env: p.env, pos: fpos, target: target!, args: args)
+        return CallForm(env: p.env, pos: fpos, target: target, args: args)
     }
 }

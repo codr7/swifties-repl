@@ -114,6 +114,14 @@ Pairs may be formed using `:`.
 [1:2]
 ```
 
+### iteration
+`for` may be used to iterate.
+
+```
+  (for 3)
+[0 1 2]
+```
+
 ### todo
 - add macros
 - add string parser

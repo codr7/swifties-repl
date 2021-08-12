@@ -21,9 +21,8 @@ public class StackReader: Reader {
             c = p.getc()
             if c == nil || c == "]" { break }
             p.ungetc(c!)
-            let f = try parser.readForm()
-            if f == nil { break }
-            items.append(f!)
+            if !(try parser.readForm()) { break }
+            items.append(parser.popForm()!)
         }
 
         if c != "]" { throw ReadError(p.pos, "Open stack form: \((c == nil) ? "nil" : String(c!))") }
