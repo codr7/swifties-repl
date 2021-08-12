@@ -2,7 +2,7 @@ import Foundation
 import Swifties
 
 print("Swifties v\(SWIFTIES_VERSION)\n")
-print("Return evaluates once a form is complete,")
+print("Return evaluates completed forms,")
 print("(reset) clears the stack and Ctrl+D quits.\n")
 
 let env = Env()

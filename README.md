@@ -6,7 +6,7 @@ This projects aims to demonstrate how to implement a custom Lisp with REPL using
 ```
 Swifties v2
 
-Return evaluates once a form is complete,
+Return evaluates completed forms,
 (reset) clears the stack and Ctrl+D quits.
 
   (func fibrec [Int] [Int]
