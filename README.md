@@ -6,17 +6,16 @@ This projects aims to demonstrate how to implement a custom Lisp with REPL using
 ```
 Swifties v2
 
-Hitting Return evaluates once a form is complete,
+Return evaluates once a form is complete,
 (reset) clears the stack and Ctrl+D quits.
 
-  (do 1 2 3)
-[1 2 3]
+  (func fibrec [Int] [Int]
+      (let [n _]
+          (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n))))))
+[]
 
-  (do 4 stash 5 6)
-[[1 2 3 4] 5 6]
-
-  (do drop drop splat)
-[1 2 3 4]
+  (fibrec 20)
+[6765]
 ```
 
 ### quirks
@@ -24,6 +23,20 @@ Hitting Return evaluates once a form is complete,
 - Primitives, Macros and Functions are called on reference with no arguments outside of call forms.
 - Parens are used for calls only, brackets for lists of things.
 - There's no syntax yet for automagically binding function arguments, think Perl until recently.
+
+### stacks
+`stash` may be used to replace the the stack with its contents as a single item, while `stash` replaces the top item with its items. Any identifier containing only the letter `d`, such as `dd` in the following example, drops that many items from the stack.
+
+```
+  (do 1 2 3)
+[1 2 3]
+
+  (do 4 stash 5 6)
+[[1 2 3 4] 5 6]
+
+  (do dd splat)
+[1 2 3 4]
+```
 
 ### bindings
 Values may be bound to identifiers using `let`.
