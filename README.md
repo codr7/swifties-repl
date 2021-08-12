@@ -127,4 +127,3 @@ Pairs may be formed using `:`.
 - add string parser
 - add string interpolation
     - swift syntax
-- add syntax for func arg names
