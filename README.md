@@ -13,8 +13,8 @@ Return evaluates completed forms,
       (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n)))))
 []
 
-  (fibrec 20)
-[6765]
+  (fibrec 10)
+[55]
 ```
 
 ### quirks
