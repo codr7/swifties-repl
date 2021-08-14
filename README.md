@@ -9,9 +9,8 @@ Swifties v2
 Return evaluates completed forms,
 (reset) clears the stack and Ctrl+D quits.
 
-  (func fibrec [Int] [Int]
-      (let [n _]
-          (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n))))))
+  (func fibrec [n:Int] [Int]
+      (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n)))))
 []
 
   (fibrec 20)
@@ -22,7 +21,6 @@ Return evaluates completed forms,
 - The stack is directly exposed to user code, just like in Forth.
 - Primitives, Macros and Functions are called on reference with no arguments outside of call forms.
 - Parens are used for calls only, brackets for lists of things.
-- There's no syntax yet for automagically binding function arguments, think Perl until recently.
 
 ### stacks
 `stash` may be used to replace the the stack with its contents as a single item, while `stash` replaces the top item with its items. Any identifier containing only the letter `d`, such as `dd` in the following example, drops that many items from the stack.
@@ -51,20 +49,18 @@ Values may be bound to identifiers using `let`.
 New functions may be defined using `func`.
 
 ```
-  (func fibrec [Int] [Int]
-      (let [n _]
-          (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n))))))
+  (func fibrec [n:Int] [Int]
+      (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n))))))
 []
 
-  (fibrec 20)
-[6765]
+  (fibrec 10)
+[55]
 ```
 The algorithm can definitely be improved, note that I had to change `n` from `10` to `50` to even get something worth measuring.
 
 ```
-  (func fibtail1 [Int Int Int] [Int]
-      (let [n _ a _ b _]
-          (if (=0 n) a (if (=1 n) b (fibtail1 (-1 n) b (+ a b))))))
+  (func fibtail1 [n:Int a:Int b:Int] [Int]
+      (if (=0 n) a (if (=1 n) b (fibtail1 (-1 n) b (+ a b)))))
 []
 
   (bench 100 (fibrec 10))
@@ -77,9 +73,8 @@ The algorithm can definitely be improved, note that I had to change `n` from `10
 Since the recursive call is in tail position, `recall` may be used to trigger tail call optimization.
 
 ```
-  (func fibtail2 [Int Int Int] [Int]
-      (let [n _ a _ b _]
-          (if (=0 n) a (if (=1 n) b (recall (-1 n) b (+ a b))))))
+  (func fibtail2 [n:Int a:Int b:Int] [Int]
+      (if (=0 n) a (if (=1 n) b (recall (-1 n) b (+ a b)))))
 []
 
   (bench 100 (fibtail2 50 0 1))
