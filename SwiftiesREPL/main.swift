@@ -40,8 +40,8 @@ while true {
             env.emit(STOP)
             try env.eval(startPc)
             print("\(env.coreLib!.stackType.dumpValue!(env.stack))")
-        } catch is Error {
-            print(\(error))
+        } catch {
+            print(error)
         }
         
         parser.reset()
