@@ -138,7 +138,7 @@ Pairs may be formed using `:`.
 ```
 
 ### todo
-- add macros
 - add string parser
 - add string interpolation
     - swift syntax
+- add macros
