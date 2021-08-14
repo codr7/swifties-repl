@@ -23,7 +23,7 @@ Return evaluates completed forms,
 - Parens are used for calls only, brackets for lists of things.
 
 ### stacks
-`stash` may be used to replace the the stack with its contents as a single item, while `stash` replaces the top item with its items. Any identifier containing only the letter `d`, such as `dd` in the following example, drops that many items from the stack.
+`stash` may be used to replace the the stack with its contents as a single item, while `splat` replaces the top item with its items. Any identifier containing only the letter `d`, such as `dd` in the following example, drops that many items from the stack.
 
 ```
   (do 1 2 3)
