@@ -50,7 +50,7 @@ New functions may be defined using `func`.
 
 ```
   (func fibrec [n:Int] [Int]
-      (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n))))))
+      (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n)))))
 []
 
   (fibrec 10)

@@ -34,10 +34,16 @@ while true {
     
     if forms.count > 0 && parser.input.count == 0 {
         let startPc = env.pc
-        for f in forms { try f.emit() }
-        env.emit(STOP)
-        try env.eval(startPc)
-        print("\(env.coreLib!.stackType.dumpValue!(env.stack))")
+        
+        do {
+            for f in forms { try f.emit() }
+            env.emit(STOP)
+            try env.eval(startPc)
+            print("\(env.coreLib!.stackType.dumpValue!(env.stack))")
+        } catch is Error {
+            print(\(error))
+        }
+        
         parser.reset()
         prompt += 1
     }
