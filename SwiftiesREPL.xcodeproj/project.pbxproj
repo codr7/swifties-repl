@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8627703A26BA3EEA0016716F /* IdReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627703926BA3EEA0016716F /* IdReader.swift */; };
 		86A47DFE26B7377300DFE052 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A47DFD26B7377300DFE052 /* main.swift */; };
 		86A47E0C26B749C700DFE052 /* Swifties in Frameworks */ = {isa = PBXBuildFile; productRef = 86A47E0B26B749C700DFE052 /* Swifties */; };
 		86D48D8B26BB194400704F7D /* CallReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D48D8A26BB194400704F7D /* CallReader.swift */; };
 		86D48D8E26BDF49600704F7D /* StackReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D48D8D26BDF49600704F7D /* StackReader.swift */; };
 		86D48D9026C4912100704F7D /* PairReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D48D8F26C4912100704F7D /* PairReader.swift */; };
 		86D48D9226C5726D00704F7D /* IdForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D48D9126C5726D00704F7D /* IdForm.swift */; };
+		86D48D9726C9E00500704F7D /* readers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D48D9626C9E00500704F7D /* readers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +29,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8627703926BA3EEA0016716F /* IdReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdReader.swift; sourceTree = "<group>"; };
 		86A47DFA26B7377300DFE052 /* SwiftiesREPL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftiesREPL; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A47DFD26B7377300DFE052 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		86D48D8A26BB194400704F7D /* CallReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallReader.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		86D48D8D26BDF49600704F7D /* StackReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackReader.swift; sourceTree = "<group>"; };
 		86D48D8F26C4912100704F7D /* PairReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairReader.swift; sourceTree = "<group>"; };
 		86D48D9126C5726D00704F7D /* IdForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdForm.swift; sourceTree = "<group>"; };
+		86D48D9626C9E00500704F7D /* readers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = readers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,6 @@
 		8627703B26BA41790016716F /* readers */ = {
 			isa = PBXGroup;
 			children = (
-				8627703926BA3EEA0016716F /* IdReader.swift */,
 				86D48D8A26BB194400704F7D /* CallReader.swift */,
 				86D48D8D26BDF49600704F7D /* StackReader.swift */,
 				86D48D8F26C4912100704F7D /* PairReader.swift */,
@@ -85,6 +84,7 @@
 				86D48D9326C5727300704F7D /* forms */,
 				8627703B26BA41790016716F /* readers */,
 				86A47DFD26B7377300DFE052 /* main.swift */,
+				86D48D9626C9E00500704F7D /* readers.swift */,
 			);
 			path = SwiftiesREPL;
 			sourceTree = "<group>";
@@ -163,8 +163,8 @@
 				86A47DFE26B7377300DFE052 /* main.swift in Sources */,
 				86D48D9026C4912100704F7D /* PairReader.swift in Sources */,
 				86D48D8E26BDF49600704F7D /* StackReader.swift in Sources */,
-				8627703A26BA3EEA0016716F /* IdReader.swift in Sources */,
 				86D48D9226C5726D00704F7D /* IdForm.swift in Sources */,
+				86D48D9726C9E00500704F7D /* readers.swift in Sources */,
 				86D48D8B26BB194400704F7D /* CallReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

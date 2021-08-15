@@ -36,7 +36,7 @@ Return evaluates completed forms,
 [1 2 3 4]
 ```
 
-Stack literals may be specified by enclosing code in brackets.
+Stack literals are enclosed in brackets.
 
 ```
   [1 2 3]
@@ -122,11 +122,19 @@ Every value has a boolean representation; most are true, but integers are false 
 ```
 
 ### strings
-Stack literals may be specified by enclosing text in double quotes.
+Stack literals are enclosed in double quotes.
 
 ```
   "foo"
 ["foo"]
+```
+
+### characters
+Character literals are prefixed with `#`.
+
+```
+  #a
+[#a]
 ```
 
 ### pairs
