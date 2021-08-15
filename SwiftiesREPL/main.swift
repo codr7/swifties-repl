@@ -13,7 +13,7 @@ try env.coreLib!.bind(pos: initPos)
 try MathLib(env: env, pos: initPos).bind(pos: initPos)
 
 let parser = Parser(env: env, source: "repl",
-                    prefix: [spaceReader, callReader, intReader, stackReader, idReader],
+                    prefix: [spaceReader, callReader, intReader, stringReader, stackReader, idReader],
                     suffix: [pairReader])
 
 var prompt = 1

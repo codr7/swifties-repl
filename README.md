@@ -121,6 +121,14 @@ Every value has a boolean representation; most are true, but integers are false 
 [t f]
 ```
 
+### strings
+Stack literals may be specified by enclosing text in double quotes.
+
+```
+  "foo"
+["foo"]
+```
+
 ### pairs
 Pairs may be formed using `:`.
 
@@ -140,12 +148,13 @@ Pairs may be formed using `:`.
 `:` may be used to bind the current value.
 
 ```
-  (for i:3 i)
-[0 1 2]
+  (for c:"foo" c)
+[#f #o #o]
 ```
 
 ### todo
-- add string parser
+- add charReader
+- add support for \n & \t in stringReader
 - add string interpolation
     - swift syntax
 - add macros
