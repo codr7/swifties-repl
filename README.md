@@ -36,6 +36,13 @@ Return evaluates completed forms,
 [1 2 3 4]
 ```
 
+Stack literals may be specified by enclosing code in brackets.
+
+```
+  [1 2 3]
+[1 2 3]
+```
+
 ### bindings
 Values may be bound to identifiers using `let`.
 
