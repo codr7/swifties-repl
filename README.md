@@ -153,8 +153,5 @@ Pairs may be formed using `:`.
 ```
 
 ### todo
-- add charReader
-- add support for \n & \t in stringReader
-- add string interpolation
-    - swift syntax
+- move stackReader/pairReader
 - add macros
