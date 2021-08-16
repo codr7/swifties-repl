@@ -145,7 +145,7 @@ Pairs may be formed using `:`.
 [1:2]
 ```
 
-### iteration
+### iterators
 `for` may be used to iterate any sequence.
 
 ```
