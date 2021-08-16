@@ -122,7 +122,7 @@ Every value has a boolean representation; most are true, but integers are false 
 ```
 
 ### strings
-Stack literals are enclosed in double quotes.
+String literals are enclosed in double quotes.
 
 ```
   "foo"
@@ -153,7 +153,7 @@ Pairs may be formed using `:`.
 [0 1 2]
 ```
 
-`:` may be used to bind the current value.
+`:` may be used to bind the current value within the loop body.
 
 ```
   (for c:"foo" c)
