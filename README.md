@@ -172,5 +172,5 @@ The current continuation may be captured using `suspend` and evaluated using `re
 ```
 
 ### todo
-- move stackReader/pairReader
+- move stackReader
 - add macros
