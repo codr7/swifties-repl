@@ -94,8 +94,8 @@ Multimethods delegate to the most specific applicable function, this makes them 
 
 ```
   (func foo [] [String] "n/a")
-  (func foo [arg: Int] [String] "Int")
-  (func foo [arg: Any] [String] "Any")
+  (func foo [_:Int] [String] "Int")
+  (func foo [_:Any] [String] "Any")
 []
 
   (foo 42)
