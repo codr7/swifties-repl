@@ -88,6 +88,26 @@ Since the recursive call is in tail position, `recall` may be used to trigger ta
 [307 120 95]
 ```
 
+### multimethods
+Functions are upgraded to multimethods as soon as multiple definitions share the same name.
+Multimethods delegate to the most specific applicable function, this makes them somewhat more expensive to call.
+
+```
+  (func foo [] [String] "n/a")
+  (func foo [arg: Int] [String] "Int")
+  (func foo [arg: Any] [String] "Any")
+[]
+
+  (foo 42)
+["Int"]
+
+  (foo t)
+["Int" "Any"]
+
+  (foo)
+["Int" "Any" "n/a"]
+```
+
 ### booleans
 Every value has a boolean representation; most are true, but integers are false when zero, strings and stacks when empty etc. 
 
@@ -172,5 +192,4 @@ The current continuation may be captured using `suspend` and evaluated using `re
 ```
 
 ### todo
-- move stackReader
 - add macros
