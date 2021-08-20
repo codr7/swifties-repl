@@ -4,7 +4,7 @@
 This projects aims to demonstrate how to implement a custom Lisp with REPL using [Swifties](https://github.com/codr7/swifties).
 
 ```
-Swifties v3
+Swifties v4
 
 Return evaluates completed forms,
 (reset) clears the stack and Ctrl+D quits.
@@ -86,6 +86,14 @@ Since the recursive call is in tail position, `recall` may be used to trigger ta
 
   (bench 100 (fibtail2 50 0 1))
 [307 120 95]
+```
+
+#### dots
+`.` may be used to shift arguments to the left of the target syntactically.
+
+```
+  (1.+ 2)
+[3]
 ```
 
 ### multimethods
@@ -180,6 +188,16 @@ Pairs may be formed using `:`.
 [#f #o #o]
 ```
 
+`map` may be used to transform sequences.
+
+```
+  (map &+1 [1 2 3])
+[Iter(0x00007ffee5571a48)]
+
+  (for _)
+[2 3 4]
+```
+
 ### continuations
 The current continuation may be captured using `suspend` and evaluated using `restore`.
 
@@ -192,4 +210,5 @@ The current continuation may be captured using `suspend` and evaluated using `re
 ```
 
 ### todo
+- add reference reader
 - add macros

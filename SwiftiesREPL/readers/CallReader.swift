@@ -12,9 +12,19 @@ public func callReader(_ p: Parser) throws -> Form? {
         
     p.nextColumn()
     if !(try p.readForm()) { throw ReadError(p.pos, "Missing target") }
-    let target = p.popForm()!
+    var target = p.popForm()!
     var args: [Form] = []
 
+    c = p.getc()
+    
+    if c == "." {
+        args.append(target)
+        if !(try p.readForm()) { throw ReadError(p.pos, "Missing target") }
+        target = p.popForm()!
+    } else if c != nil {
+        p.ungetc(c!)
+    }
+    
     while true {
         try spaceReader(p)
         c = p.getc()
