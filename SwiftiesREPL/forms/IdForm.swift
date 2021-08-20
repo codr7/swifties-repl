@@ -10,10 +10,18 @@ class IdForm: Swifties.IdForm {
     open override func expand() throws -> Form { isDrop ? self : try super.expand() }
     
     open override func emit() throws {
-        if isDrop {
-            env.emit(Drop(env: env, pos: pos, pc: env.pc, count: name.count))
-        } else if isRef {
-            try emitRef(name: String(name.dropFirst()))
+        if let found = env.scope!.find(name) {
+            if found.type == env.coreLib!.primType {
+                try (found.value as! Prim).emit(pos: pos, args: [])
+            } else if let _ = found.type.callValue {
+                env.emit(Call(env: env, pos: pos, pc: env.pc, target: found, check: true))
+            } else if isDrop {
+                env.emit(Drop(env: env, pos: pos, pc: env.pc, count: name.count))
+            } else if isRef {
+                try emit(name: String(name.dropFirst()))
+            } else {
+                try super.emit()
+            }
         } else {
             try super.emit()
         }

@@ -10,7 +10,7 @@ Return evaluates completed forms,
 (reset) clears the stack and Ctrl+D quits.
 
   (func fibrec [n:Int] [Int]
-      (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n)))))
+      (if (< n 2) n (+ (fibrec (-- n)) (fibrec (- n 2)))))
 []
 
   (fibrec 10)
@@ -57,7 +57,7 @@ New functions may be defined using `func`.
 
 ```
   (func fibrec [n:Int] [Int]
-      (if (< n 2) n (+ (fibrec (-1 n)) (fibrec (-2 n)))))
+      (if (< n 2) n (+ (fibrec (-- n)) (fibrec (- n 2)))))
 []
 
   (fibrec 10)
@@ -67,7 +67,7 @@ The algorithm can definitely be improved, note that I had to change `n` from `10
 
 ```
   (func fibtail1 [n:Int a:Int b:Int] [Int]
-      (if (=0 n) a (if (=1 n) b (fibtail1 (-1 n) b (+ a b)))))
+      (if (z? n) a (if (one? n) b (fibtail1 (-- n) b (+ a b)))))
 []
 
   (bench 100 (fibrec 10))
@@ -81,7 +81,7 @@ Since the recursive call is in tail position, `recall` may be used to trigger ta
 
 ```
   (func fibtail2 [n:Int a:Int b:Int] [Int]
-      (if (=0 n) a (if (=1 n) b (recall (-1 n) b (+ a b)))))
+      (if (z? n) a (if (one? n) b (recall (-- n) b (+ a b)))))
 []
 
   (bench 100 (fibtail2 50 0 1))
@@ -158,11 +158,11 @@ String literals are enclosed in double quotes.
 ```
 
 ### characters
-Character literals are prefixed with `#`.
+Character literals are prefixed with `\`.
 
 ```
-  #a
-[#a]
+  \a
+[\a]
 ```
 
 ### pairs
@@ -185,14 +185,14 @@ Pairs may be formed using `:`.
 
 ```
   (for c:"foo" c)
-[#f #o #o]
+[\f \o \o]
 ```
 
 `map` may be used to transform sequences.
 
 ```
-  (map &+1 [1 2 3])
-[Iter(0x00007ffee5571a48)]
+  (map &++ [1 2 3])
+[Iter]
 
   (for _)
 [2 3 4]
