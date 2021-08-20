@@ -19,6 +19,7 @@ let parser = Parser(env: env, source: "repl",
                              charReader,
                              stringReader,
                              stackReader,
+                             quoteReader,
                              idReader()],
                     suffix: [pairReader])
 

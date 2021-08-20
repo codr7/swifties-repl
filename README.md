@@ -4,7 +4,7 @@
 This projects aims to demonstrate how to implement a custom Lisp with REPL using [Swifties](https://github.com/codr7/swifties).
 
 ```
-Swifties v4
+Swifties v5
 
 Return evaluates completed forms,
 (reset) clears the stack and Ctrl+D quits.
@@ -165,6 +165,14 @@ Character literals are prefixed with `\`.
 [\a]
 ```
 
+### quoting
+Forms may be quoted by prefixing with `'`.
+
+```
+  'foo '(x y z)  
+['foo '(x y z)]
+```
+
 ### pairs
 Pairs may be formed using `:`.
 
@@ -210,5 +218,4 @@ The current continuation may be captured using `suspend` and evaluated using `re
 ```
 
 ### todo
-- add reference reader
 - add macros

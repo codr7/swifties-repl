@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		864270F026CF341C00B80EBB /* IdReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864270EF26CF341C00B80EBB /* IdReader.swift */; };
+		864270F226D037C600B80EBB /* QuoteReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864270F126D037C600B80EBB /* QuoteReader.swift */; };
 		86A47DFE26B7377300DFE052 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A47DFD26B7377300DFE052 /* main.swift */; };
 		86A47E0C26B749C700DFE052 /* Swifties in Frameworks */ = {isa = PBXBuildFile; productRef = 86A47E0B26B749C700DFE052 /* Swifties */; };
 		86D48D8B26BB194400704F7D /* CallReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D48D8A26BB194400704F7D /* CallReader.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		864270EF26CF341C00B80EBB /* IdReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdReader.swift; sourceTree = "<group>"; };
+		864270F126D037C600B80EBB /* QuoteReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteReader.swift; sourceTree = "<group>"; };
 		86A47DFA26B7377300DFE052 /* SwiftiesREPL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftiesREPL; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A47DFD26B7377300DFE052 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		86D48D8A26BB194400704F7D /* CallReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallReader.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				86D48D8A26BB194400704F7D /* CallReader.swift */,
 				86D48D8F26C4912100704F7D /* PairReader.swift */,
 				864270EF26CF341C00B80EBB /* IdReader.swift */,
+				864270F126D037C600B80EBB /* QuoteReader.swift */,
 			);
 			path = readers;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				86A47DFE26B7377300DFE052 /* main.swift in Sources */,
 				86D48D9026C4912100704F7D /* PairReader.swift in Sources */,
 				86D48D9226C5726D00704F7D /* IdForm.swift in Sources */,
+				864270F226D037C600B80EBB /* QuoteReader.swift in Sources */,
 				86D48D9726C9E00500704F7D /* readers.swift in Sources */,
 				86D48D8B26BB194400704F7D /* CallReader.swift in Sources */,
 				864270F026CF341C00B80EBB /* IdReader.swift in Sources */,
