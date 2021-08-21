@@ -10,7 +10,7 @@ Return evaluates completed forms,
 (reset) clears the stack and Ctrl+D quits.
 
   (func fibrec [n:Int] [Int]
-      (if (< n 2) n (+ (fibrec (-- n)) (fibrec (- n 2)))))
+      (if (< $n 2) $n (+ (fibrec (-- $n)) (fibrec (- $n 2)))))
 
   (fibrec 10)
 [55]
@@ -18,7 +18,7 @@ Return evaluates completed forms,
 
 ### quirks
 - The stack is directly exposed to user code, just like in Forth.
-- Primitives, Macros and Functions are called on reference with no arguments outside of call forms.
+- Primitives, Macros and Functions are called on reference outside of call forms.
 - Parens are used for calls only, brackets for lists of things.
 
 ### stacks
@@ -47,7 +47,7 @@ Values may be bound to identifiers using `let`.
 
 ```
   (let [x 35 y 7]
-      (+ x y))
+      (+ $x $y))
 [42]
 ```
 
@@ -56,7 +56,7 @@ New functions may be defined using `func`.
 
 ```
   (func fibrec [n:Int] [Int]
-      (if (< n 2) n (+ (fibrec (-- n)) (fibrec (- n 2)))))
+      (if (< $n 2) $n (+ (fibrec (-- $n)) (fibrec (- $n 2)))))
 
   (fibrec 10)
 [55]
@@ -65,13 +65,18 @@ New functions may be defined using `func`.
 The same thing could be accomplished without bindings by manipulating the stack, if one was so inclined.
 
 ```
+  (func fibrecs [Int] [Int]
+    c (if (< _ 2) _ (do -- c fibrecs s -- fibrecs +)))
+
+  (fibrec 10)
+[55]
 ```
 
 The algorithm can definitely be improved, note that I had to change `n` from `10` to `50` to even get something worth measuring.
 
 ```
   (func fibtail1 [n:Int a:Int b:Int] [Int]
-      (if (z? n) a (if (one? n) b (fibtail1 (-- n) b (+ a b)))))
+      (if (z? $n) a (if (one? $n) $b (fibtail1 (-- $n) $b (+ $a $b)))))
 
   (bench 100 (fibrec 10))
 [307]
@@ -84,7 +89,7 @@ Since the recursive call is in tail position, `recall` may be used to trigger ta
 
 ```
   (func fibtail2 [n:Int a:Int b:Int] [Int]
-      (if (z? n) a (if (one? n) b (recall (-- n) b (+ a b)))))
+      (if (z? $n) $a (if (one? $n) $b (recall (-- $n) $b (+ $a $b)))))
 
   (bench 100 (fibtail2 50 0 1))
 [307 120 95]
@@ -176,13 +181,13 @@ Forms may be quoted by prefixing with `'`.
 `,` may be used to splice values into quoted expressions.
 
 ```
-  (let [foo 42] '[,foo])
+  (let [foo 42] '[,$foo])
 ['[42]]
 ```
 Splicing multiple values is just as easy.
 
 ```
-  (let [foo [1 2 3]] '[,(splat foo)])
+  (let [foo [1 2 3]] '[,(splat $foo)])
 ['[1 2 3]]
 ```
 
@@ -205,14 +210,7 @@ Pairs may be formed using `:`.
 `:` may be used to bind the current value within the loop body.
 
 ```
-  (for c:"foo" c)
-[\f \o \o]
-```
-
-For something as simple as this, `splat` would be a better alternative.
-
-```
-  (splat "foo")
+  (for c:"foo" $c)
 [\f \o \o]
 ```
 
@@ -222,7 +220,7 @@ For something as simple as this, `splat` would be a better alternative.
   (map &++ [1 2 3])
 [Iter]
 
-  (for _)
+  (splat _)
 [2 3 4]
 ```
 
