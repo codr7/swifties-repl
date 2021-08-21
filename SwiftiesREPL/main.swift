@@ -12,6 +12,11 @@ try env.initCoreLib(pos: initPos)
 try env.coreLib!.bind(pos: initPos)
 try MathLib(env: env, pos: initPos).bind(pos: initPos)
 
+let charReader = Swifties.charReader("\\")
+let idReader = Swifties.idReader("(", ")", "[", "]", ":", ".", "'", ",")
+let stackReader = Swifties.stackReader("[", "]")
+let stringReader = Swifties.stringReader("\"")
+
 let parser = Parser(env: env, source: "repl",
                     prefix: [spaceReader,
                              callReader,
