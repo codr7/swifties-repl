@@ -20,7 +20,8 @@ let parser = Parser(env: env, source: "repl",
                              stringReader,
                              stackReader,
                              quoteReader,
-                             idReader()],
+                             unquoteReader,
+                             idReader],
                     suffix: [pairReader])
 
 var prompt = 1

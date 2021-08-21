@@ -1,16 +1,16 @@
 import Foundation
 import Swifties
 
-public func quoteReader(_ p: Parser) throws -> Form? {
+public func unquoteReader(_ p: Parser) throws -> Form? {
     let fpos = p.pos
     
     if let c = p.getc() {
-        if c == "'" {
+        if c == "," {
             p.nextColumn()
             
             if try p.readForm() {
                 if let f = p.popForm() {
-                    return QuoteForm(env: p.env, pos: fpos, form: f)
+                    return UnquoteForm(env: p.env, pos: fpos, form: f)
                 }
             }
         }

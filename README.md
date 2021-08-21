@@ -172,6 +172,12 @@ Forms may be quoted by prefixing with `'`.
   'foo '(x y z)  
 ['foo '(x y z)]
 ```
+`,` may be used to splice values into quoted expressions.
+
+```
+  (let [x 42] '[,x])
+[[42]]
+```
 
 ### pairs
 Pairs may be formed using `:`.
