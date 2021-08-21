@@ -60,7 +60,7 @@ Stack literals are enclosed in brackets.
 `splat`  replaces the top item (which is required to be iterable) with its items.
 
 ```
-  [1 2 3] splat
+  (splat [1 2 3])
 [1 2 3]
 ```
 
@@ -257,10 +257,10 @@ Pairs may be formed using `:`.
 The current continuation may be captured using `suspend` and evaluated using `restore`.
 
 ```
-  (suspend) 42
-[Cont(2)]
+  (suspend "was here") 42
+[Cont(2) "was here"]
 
-  (restore _)
+  d (restore _)
 [42]
 ```
 
