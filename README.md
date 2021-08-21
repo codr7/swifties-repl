@@ -176,7 +176,7 @@ Forms may be quoted by prefixing with `'`.
 
 ```
   (let [x 42] '[,x])
-[[42]]
+['[42]]
 ```
 
 ### pairs
