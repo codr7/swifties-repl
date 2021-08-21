@@ -76,7 +76,7 @@ The algorithm can definitely be improved, note that I had to change `n` from `10
 
 ```
   (func fibtail1 [n:Int a:Int b:Int] [Int]
-      (if (z? $n) a (if (one? $n) $b (fibtail1 (-- $n) $b (+ $a $b)))))
+      (if (z? $n) $a (if (one? $n) $b (fibtail1 (-- $n) $b (+ $a $b)))))
 
   (bench 100 (fibrec 10))
 [307]
