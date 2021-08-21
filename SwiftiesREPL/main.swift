@@ -40,19 +40,21 @@ while true {
     
     let forms = parser.forms
     
-    if forms.count > 0 && parser.input.count == 0 {
-        let startPc = env.pc
+    if parser.input.count == 0 {
+        if forms.count > 0 {
+            let startPc = env.pc
         
-        do {
-            for f in forms { try f.emit() }
-            env.emit(STOP)
-            try env.eval(startPc)
-            print("\(env.coreLib!.stackType.dumpValue!(env.stack))")
-        } catch {
-            print(error)
+            do {
+                for f in forms { try f.emit() }
+                env.emit(STOP)
+                try env.eval(startPc)
+            } catch {
+                print(error)
+            }        
         }
-        
-        parser.reset()
+
         prompt += 1
+        print(env.stack.dump())
+        parser.reset()
     }
 }

@@ -22,23 +22,45 @@ Return evaluates completed forms,
 - Parens are used for calls only, brackets for lists of things.
 
 ### stacks
-`stash` may be used to replace the the stack with its contents as a single item, while `splat` replaces the top item with its items. Any identifier containing only the letter `d`, such as `dd` in the following example, drops that many items from the stack.
+`c` swaps the specified number of items.
 
 ```
-  (do 1 2 3)
-[1 2 3]
+  1 2 3 cc
+[1 2 3 2 3]
+```
 
-  (do 4 stash 5 6)
-[[1 2 3 4] 5 6]
+`d` drops the specified number of items.
 
-  (do dd splat)
-[1 2 3 4]
+```
+1 2 3 4 dd
+[1 2]
+```
+
+`s` swaps the specified number of items.
+
+```
+  1 2 3 4 5 ss
+[1 4 5 2 3]
+```
+
+`stash`  replaces the the stack with its contents as a single item.
+
+```
+  1 2 3 stash
+[[1 2 3]]
 ```
 
 Stack literals are enclosed in brackets.
 
 ```
   [1 2 3]
+[[1 2 3]]
+```
+
+`splat`  replaces the top item (which is required to be iterable) with its items.
+
+```
+  [1 2 3] splat
 [1 2 3]
 ```
 
