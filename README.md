@@ -11,7 +11,6 @@ Return evaluates completed forms,
 
   (func fibrec [n:Int] [Int]
       (if (< n 2) n (+ (fibrec (-- n)) (fibrec (- n 2)))))
-[]
 
   (fibrec 10)
 [55]
@@ -58,17 +57,21 @@ New functions may be defined using `func`.
 ```
   (func fibrec [n:Int] [Int]
       (if (< n 2) n (+ (fibrec (-- n)) (fibrec (- n 2)))))
-[]
 
   (fibrec 10)
 [55]
 ```
+
+The same thing could be accomplished without bindings by manipulating the stack, if one was so inclined.
+
+```
+```
+
 The algorithm can definitely be improved, note that I had to change `n` from `10` to `50` to even get something worth measuring.
 
 ```
   (func fibtail1 [n:Int a:Int b:Int] [Int]
       (if (z? n) a (if (one? n) b (fibtail1 (-- n) b (+ a b)))))
-[]
 
   (bench 100 (fibrec 10))
 [307]
@@ -82,7 +85,6 @@ Since the recursive call is in tail position, `recall` may be used to trigger ta
 ```
   (func fibtail2 [n:Int a:Int b:Int] [Int]
       (if (z? n) a (if (one? n) b (recall (-- n) b (+ a b)))))
-[]
 
   (bench 100 (fibtail2 50 0 1))
 [307 120 95]
@@ -104,7 +106,6 @@ Multimethods delegate to the most specific applicable function, this makes them 
   (func foo [] [String] "n/a")
   (func foo [_:Int] [String] "Int")
   (func foo [_:Any] [String] "Any")
-[]
 
   (foo 42)
 ["Int"]
@@ -175,8 +176,14 @@ Forms may be quoted by prefixing with `'`.
 `,` may be used to splice values into quoted expressions.
 
 ```
-  (let [x 42] '[,x])
+  (let [foo 42] '[,foo])
 ['[42]]
+```
+Splicing multiple values is just as easy.
+
+```
+  (let [foo [1 2 3]] '[,(splat foo)])
+['[1 2 3]]
 ```
 
 ### pairs
@@ -199,6 +206,13 @@ Pairs may be formed using `:`.
 
 ```
   (for c:"foo" c)
+[\f \o \o]
+```
+
+For something as simple as this, `splat` would be a better alternative.
+
+```
+  (splat "foo")
 [\f \o \o]
 ```
 
