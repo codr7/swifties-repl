@@ -165,7 +165,7 @@ Character literals are prefixed with `\`.
 [\a]
 ```
 
-### quoting
+### quotes
 Forms may be quoted by prefixing with `'`.
 
 ```
