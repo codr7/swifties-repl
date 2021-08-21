@@ -1,7 +1,7 @@
 ## Swifties REPL
 
 ### intro
-This projects aims to demonstrate how to implement a custom Lisp with REPL using [Swifties](https://github.com/codr7/swifties).
+This projects aims to demonstrate how to implement a custom Lisp REPL using [Swifties](https://github.com/codr7/swifties).
 
 ```
 Swifties v5
