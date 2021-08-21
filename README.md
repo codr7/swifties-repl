@@ -90,8 +90,18 @@ The same thing could be accomplished without bindings by manipulating the stack,
   (func fibrecs [Int] [Int]
     c (if (< _ 2) _ (do -- c fibrecs s -- fibrecs +)))
 
-  (fibrec 10)
+  (fibrecs 10)
 [55]
+```
+
+It also runs somewhat faster.
+
+```
+(bench 100 (fibrec 10))
+[366]
+
+(bench 100 (fibrecs 10))
+[366 357]
 ```
 
 The algorithm can definitely be improved, note that I had to change `n` from `10` to `50` to even get something worth measuring.
@@ -100,11 +110,8 @@ The algorithm can definitely be improved, note that I had to change `n` from `10
   (func fibtail1 [n:Int a:Int b:Int] [Int]
       (if (z? $n) $a (if (one? $n) $b (fibtail1 (-- $n) $b (+ $a $b)))))
 
-  (bench 100 (fibrec 10))
-[307]
-
   (bench 100 (fibtail1 50 0 1))
-[307 120]
+[149]
 ```
 
 Since the recursive call is in tail position, `recall` may be used to trigger tail call optimization.
@@ -114,7 +121,7 @@ Since the recursive call is in tail position, `recall` may be used to trigger ta
       (if (z? $n) $a (if (one? $n) $b (recall (-- $n) $b (+ $a $b)))))
 
   (bench 100 (fibtail2 50 0 1))
-[307 120 95]
+[149 115]
 ```
 
 #### dots
@@ -250,7 +257,7 @@ Pairs may be formed using `:`.
 The current continuation may be captured using `suspend` and evaluated using `restore`.
 
 ```
-  (do (suspend) 42)
+  (suspend) 42
 [Cont(2)]
 
   (restore _)
